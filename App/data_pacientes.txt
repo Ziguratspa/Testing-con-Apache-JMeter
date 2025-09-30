@@ -1,0 +1,51 @@
+rut,nombres,apellidos,direccion,ciudad,telefono,email,fechaNacimiento,estadoCivil,comentarios
+12345678-9,Ana María,Gómez López,Av. Libertador Bernardo O'Higgins 123,Santiago,+56 9 1234 5678,ana.gomez@email.com,1985-03-15,casado,Paciente con control periódico por hipertensión
+98765432-1,Carlos Alberto,Rodríguez Silva,Calle Los Alerces 456,Valparaíso,+56 9 8765 4321,carlos.rodriguez@email.com,1978-07-22,soltero,Alergia a penicilina
+11222333-4,María Fernanda,Martínez Rojas,Pasaje Los Olmos 789,Concepción,+56 9 5555 6666,maria.martinez@email.com,1990-11-08,soltero,Control embarazo - 24 semanas
+44555666-7,Juan Pablo,Soto Vargas,Av. Las Condes 2345,Santiago,+56 9 7777 8888,juan.soto@email.com,1982-05-30,casado,Diabetes tipo 2 - control estable
+77888999-K,Laura Patricia,Fernández Castro,Calle Los Pinos 567,Viña del Mar,+56 9 3333 2222,laura.fernandez@email.com,1975-12-10,divorciado,Artritis reumatoide en tratamiento
+10111222-3,Pedro Antonio,López Mendoza,Av. Providencia 890,Santiago,+56 9 4444 5555,pedro.lopez@email.com,1988-09-25,union,Deportista - control rutinario
+13141516-9,Camila Andrea,Díaz Navarro,Calle Los Robles 1234,La Serena,+56 9 6666 7777,camila.diaz@email.com,1993-02-14,soltero,Migraña crónica
+17181920-1,Roberto José,Pérez González,Av. Alemania 5678,Valdivia,+56 9 8888 9999,roberto.perez@email.com,1970-08-18,casado,Post operatorio - recuperación favorable
+21222324-5,Isabel Cristina,Ramírez Soto,Pasaje Los Arrayanes 901,Temuco,+56 9 2222 3333,isabel.ramirez@email.com,1987-04-05,soltero,Asma bronquial controlada
+25262728-0,Miguel Ángel,Torres Herrera,Calle Los Laureles 234,Antofagasta,+56 9 1111 2222,miguel.torres@email.com,1980-11-30,casado,Hipercolesterolemia en tratamiento
+30313233-4,Patricia Elena,Mendoza Ríos,Av. Los Plátanos 567,Santiago,+56 9 9999 0000,patricia.mendoza@email.com,1983-06-12,casado,Control tiroideo mensual
+34353637-8,Jorge Luis,Silva Castro,Calle Los Nogales 890,Valparaíso,+56 9 1212 3434,jorge.silva@email.com,1972-09-25,divorciado,Hipertensión arterial
+38394041-1,Carolina Andrea,Núñez Pizarro,Pasaje Los Cerezos 123,Concepción,+56 9 4545 6767,carolina.nunez@email.com,1991-03-18,soltero,Ansiedad generalizada
+42434445-5,Francisco Javier,Ortega León,Av. Los Olivos 456,Viña del Mar,+56 9 7878 9090,francisco.ortega@email.com,1986-12-05,casado,Lumbalgia crónica
+46474849-0,Daniela Paz,Figueroa Mora,Calle Los Cipreses 789,Santiago,+56 9 2323 4545,daniela.figueroa@email.com,1979-04-30,viudo,Osteoporosis controlada
+50515253-4,Andrés Felipe,Salazar Vega,Av. Los Tilos 012,La Serena,+56 9 5656 7878,andres.salazar@email.com,1984-07-15,soltero,Apnea del sueño
+54555657-8,Gabriela Alejandra,Rivera Medina,Calle Los Almendros 345,Valdivia,+56 9 8989 0101,gabriela.rivera@email.com,1995-01-22,soltero,Control ginecológico anual
+58596061-1,Rodrigo Ignacio,Castro Díaz,Pasaje Los Manzanos 678,Temuco,+56 9 3434 5656,rodrigo.castro@email.com,1977-10-08,casado,Reflujo gastroesofágico
+62636465-5,Valentina Isabel,Morales Bravo,Av. Los Duraznos 901,Antofagasta,+56 9 6767 8989,valentina.morales@email.com,1989-11-11,union,Embarazo de alto riesgo
+66676869-0,Diego Armando,Flores Sandoval,Calle Los Perales 234,Santiago,+56 9 0909 1212,diego.flores@email.com,1981-02-28,casado,Epilepsia controlada
+70717273-4,Constanza Belén,Herrera Rojas,Av. Los Ciruelos 567,Valparaíso,+56 9 2323 3434,constanza.herrera@email.com,1994-08-17,soltero,Asma alérgica estacional
+74757677-8,Matías Alonso,Peña Fuentes,Calle Los Abetos 890,Concepción,+56 9 4545 5656,matias.pena@email.com,1974-05-03,divorciado,Enfisema pulmonar
+78798081-1,Antonella Sofía,Vergara Toledo,Pasaje Los Sauces 123,Viña del Mar,+56 9 6767 7878,antonella.vergara@email.com,1988-12-19,soltero,Depresión moderada
+82838485-5,Sebastián Alejandro,Araya Jara,Av. Los Pinos 456,Santiago,+56 9 8989 9090,sebastian.araya@email.com,1983-09-14,casado,Colesterol elevado
+86878889-0,Florencia Paz,Espinoza Núñez,Calle Los Cedros 789,La Serena,+56 9 0101 2323,florencia.espinoza@email.com,1990-06-27,soltero,Anemia ferropénica
+90919293-4,Cristóbal Andrés,Guzmán Paredes,Av. Los Robles 012,Valdivia,+56 9 1212 3434,cristobal.guzman@email.com,1976-03-08,casado,Problemas de próstata
+94959697-8,Javiera Ignacia,Sepúlveda Miranda,Calle Los Arrayanes 345,Temuco,+56 9 3434 4545,javiera.sepulveda@email.com,1987-07-21,union,Síndrome de ovario poliquístico
+98990001-1,Felipe Andrés,Tapia Reyes,Pasaje Los Laureles 678,Antofagasta,+56 9 5656 6767,felipe.tapia@email.com,1982-04-12,soltero,Lesión deportiva rodilla
+02030405-5,Martina Antonia,Cárdenas Molina,Av. Los Alerces 901,Santiago,+56 9 7878 8989,martina.cardenas@email.com,1992-11-05,soltero,Control dermatológico
+06070809-0,Bastián Alejandro,Parra Soto,Calle Los Olmos 234,Valparaíso,+56 9 9090 0101,bastian.parra@email.com,1985-01-30,casado,Problemas de sueño
+10111213-4,Fernanda Alejandra,Reyes Castillo,Av. Los Cipreses 567,Concepción,+56 9 2323 1212,fernanda.reyes@email.com,1979-08-23,divorciado,Artrosis cervical
+14151617-8,Maximiliano José,Sanhueza Campos,Calle Los Tilos 890,Viña del Mar,+56 9 4545 3434,maximiliano.sanhueza@email.com,1980-05-16,casado,Hernia discal
+18192021-1,Amanda Paz,Contreras López,Pasaje Los Manzanos 123,Santiago,+56 9 6767 5656,amanda.contreras@email.com,1993-02-09,soltero,Control nutricional
+22232425-5,Nicolás Esteban,Vega Muñoz,Av. Los Duraznos 456,La Serena,+56 9 8989 7878,nicolas.vega@email.com,1988-10-02,union,Alergia alimentaria
+26272829-0,Antonia Belén,Garrido Silva,Calle Los Perales 789,Valdivia,+56 9 0101 9090,antonia.garrido@email.com,1984-07-25,soltero,Migraña con aura
+30313233-4,Tomás Alejandro,Cortés Riquelme,Av. Los Ciruelos 012,Temuco,+56 9 1212 6767,tomas.cortes@email.com,1977-04-18,casado,Problemas cardíacos
+34353637-8,Isidora Paz,Henríquez Bravo,Calle Los Abetos 345,Antofagasta,+56 9 3434 4545,isidora.henriquez@email.com,1991-01-11,soltero,Control endocrinológico
+38394041-1,Benjamín Antonio,Palma Díaz,Pasaje Los Sauces 678,Santiago,+56 9 5656 2323,benjamin.palma@email.com,1986-08-04,casado,Problemas digestivos
+42434445-5,Trinidad María,Leiva Mora,Av. Los Pinos 901,Valparaíso,+56 9 7878 1212,trinidad.leiva@email.com,1982-03-28,divorciado,Fibromialgia
+46474849-0,Emilio José,Barrios Rivas,Calle Los Cedros 234,Concepción,+56 9 9090 3434,emilio.barrios@email.com,1975-12-21,casado,Problemas renales
+50515253-4,Rayén Antonia,Quiroga Navarro,Av. Los Robles 567,Viña del Mar,+56 9 2323 5656,rayen.quiroga@email.com,1989-09-14,soltero,Control psicológico
+54555657-8,Alonso Patricio,Valdés Montes,Calle Los Arrayanes 890,Santiago,+56 9 4545 7878,alonso.valdes@email.com,1981-06-07,casado,Problemas hepáticos
+58596061-1,Elisa Fernanda,Zúñiga Olivares,Pasaje Los Laureles 123,La Serena,+56 9 6767 9090,elisa.zuniga@email.com,1994-03-01,soltero,Control oftalmológico
+62636465-5,Renato Andrés,Aguilera Salas,Av. Los Alerces 456,Valdivia,+56 9 8989 2323,renato.aguilera@email.com,1978-11-24,casado,Problemas circulatorios
+66676869-0,Anahís Paz,Venegas Poblete,Calle Los Olmos 789,Temuco,+56 9 0101 4545,anahis.venegas@email.com,1983-08-17,soltero,Control reumatológico
+70717273-4,Gaspar Ignacio,Ibarra Toloza,Av. Los Cipreses 012,Antofagasta,+56 9 1212 6767,gaspar.ibarra@email.com,1987-05-10,union,Problemas respiratorios
+74757677-8,Luz María,Gallegos Bustos,Calle Los Tilos 345,Santiago,+56 9 3434 8989,luz.gallegos@email.com,1979-02-02,viudo,Control geriátrico
+78798081-1,Simón Alberto,Maureira Lagos,Pasaje Los Manzanos 678,Valparaíso,+56 9 5656 0101,simon.maureira@email.com,1985-10-26,casado,Problemas de tiroides
+82838485-5,Yasna Elizabeth,Urrutia Correa,Av. Los Duraznos 901,Concepción,+56 9 7878 1212,yasna.urrutia@email.com,1990-07-19,soltero,Control prenatal
+86878889-0,Omar Alejandro,Cofré Riffo,Calle Los Perales 234,Viña del Mar,+56 9 9090 3434,omar.cofre@email.com,1976-04-12,divorciado,Problemas de audición

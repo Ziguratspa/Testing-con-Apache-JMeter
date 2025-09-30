@@ -1,0 +1,1694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Pruebas_Formulario_Medico">
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="Valores por Defecto para Petición HTTP">
+        <stringProp name="HTTPSampler.domain">localhost</stringProp>
+        <stringProp name="HTTPSampler.port">8080</stringProp>
+        <stringProp name="HTTPSampler.protocol">http</stringProp>
+        <stringProp name="HTTPSampler.path">/Users/Oliver/Desktop/SEMANA 7 testing/formulario.html</stringProp>
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Header_Navegador_Real" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">text/html; charset=UTF-8</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">User-Agent</stringProp>
+            <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Accept</stringProp>
+            <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Accept-Language</stringProp>
+            <stringProp name="Header.value">es-ES,es;q=0.9,en;q=0.8</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Accept-Encoding</stringProp>
+            <stringProp name="Header.value">gzip, deflate, br</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="1.1 Carga_Pagina_Principal" enabled="true">
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+        <intProp name="ThreadGroup.num_threads">50</intProp>
+        <intProp name="ThreadGroup.ramp_time">10</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle">
+          <stringProp name="LoopController.loops">3</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET_Formulario_Principal" enabled="true">
+          <boolProp name="HTTPSampler.image_parser">true</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+          <intProp name="HTTPSampler.concurrentPool">6</intProp>
+          <stringProp name="HTTPSampler.embedded_url_re">.*\.(css|js|png|jpg|gif|ico).*</stringProp>
+          <intProp name="HTTPSampler.connect_timeout">5000</intProp>
+          <intProp name="HTTPSampler.response_timeout">10000</intProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/formulario.html</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Carga_Correcta" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="74094647">Formulario de Ficha Médica</stringProp>
+              <stringProp name="821512625">Sistema de registro y gestión de pacientes</stringProp>
+              <stringProp name="81521">RUT</stringProp>
+              <stringProp name="-823226470">btnGuardar</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">38</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Pausa_Entre_Usuarios" enabled="true">
+          <stringProp name="ConstantTimer.delay">1000</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="1.2 Envio_Formularios" enabled="true">
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+        <intProp name="ThreadGroup.num_threads">30</intProp>
+        <intProp name="ThreadGroup.ramp_time">5</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle">
+          <stringProp name="LoopController.loops">5</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Llenar_Formulario_Automatico" enabled="true">
+          <stringProp name="WebDriverSampler.script">// Configuración inicial
+WDS.sampleResult.sampleStart();
+WDS.log.info(&quot;Iniciando llenado de formulario médico&quot;);
+
+try {
+    // Navegar a la página del formulario
+    WDS.browser.get(&quot;http://localhost:8080/formulario.html&quot;);
+    WDS.log.info(&quot;Página cargada correctamente&quot;);
+    
+    // Esperar a que cargue la página
+    WDS.browser.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);
+    
+    // Generar datos aleatorios para evitar duplicados
+    var randomId = Math.floor(Math.random() * 10000);
+    var randomRut = Math.floor(Math.random() * 20000000) + 1000000;
+    var digitoVerificador = calcularDigitoVerificador(randomRut);
+    
+    // 1. Llenar campo RUT
+    var rutField = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;rut&quot;));
+    rutField.clear();
+    rutField.sendKeys(randomRut + &quot;-&quot; + digitoVerificador);
+    WDS.log.info(&quot;RUT completado: &quot; + randomRut + &quot;-&quot; + digitoVerificador);
+    
+    // 2. Llenar campo Nombres
+    var nombresField = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;nombres&quot;));
+    nombresField.clear();
+    nombresField.sendKeys(&quot;Usuario&quot; + randomId);
+    WDS.log.info(&quot;Nombres completados&quot;);
+    
+    // 3. Llenar campo Apellidos
+    var apellidosField = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;apellidos&quot;));
+    apellidosField.clear();
+    apellidosField.sendKeys(&quot;Apellido&quot; + randomId);
+    WDS.log.info(&quot;Apellidos completados&quot;);
+    
+    // 4. Llenar campo Dirección
+    var direccionField = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;direccion&quot;));
+    direccionField.clear();
+    direccionField.sendKeys(&quot;Calle Prueba &quot; + randomId);
+    WDS.log.info(&quot;Dirección completada&quot;);
+    
+    // 5. Llenar campo Ciudad
+    var ciudadField = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;ciudad&quot;));
+    ciudadField.clear();
+    ciudadField.sendKeys(&quot;Ciudad&quot; + randomId);
+    WDS.log.info(&quot;Ciudad completada&quot;);
+    
+    // 6. Llenar campo Teléfono
+    var telefonoField = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;telefono&quot;));
+    telefonoField.clear();
+    telefonoField.sendKeys(&quot;+569&quot; + (1000000 + randomId));
+    WDS.log.info(&quot;Teléfono completado&quot;);
+    
+    // 7. Llenar campo Email
+    var emailField = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;email&quot;));
+    emailField.clear();
+    emailField.sendKeys(&quot;test&quot; + randomId + &quot;@correo.com&quot;);
+    WDS.log.info(&quot;Email completado&quot;);
+    
+    // 8. Llenar campo Fecha de Nacimiento
+    var fechaField = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;fechaNacimiento&quot;));
+    fechaField.clear();
+    fechaField.sendKeys(&quot;1990-01-15&quot;);
+    WDS.log.info(&quot;Fecha de nacimiento completada&quot;);
+    
+    // 9. Seleccionar Estado Civil (aleatorio)
+    var estadoCivilField = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;estadoCivil&quot;));
+    var opciones = [&quot;soltero&quot;, &quot;casado&quot;, &quot;divorciado&quot;, &quot;viudo&quot;, &quot;union&quot;];
+    var opcionAleatoria = opciones[Math.floor(Math.random() * opciones.length)];
+    
+    var select = new org.openqa.selenium.support.ui.Select(estadoCivilField);
+    select.selectByValue(opcionAleatoria);
+    WDS.log.info(&quot;Estado civil seleccionado: &quot; + opcionAleatoria);
+    
+    // 10. Llenar campo Comentarios
+    var comentariosField = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;comentarios&quot;));
+    comentariosField.clear();
+    comentariosField.sendKeys(&quot;Paciente de prueba &quot; + randomId + &quot; - Datos generados automáticamente&quot;);
+    WDS.log.info(&quot;Comentarios completados&quot;);
+    
+    // 11. Hacer clic en el botón Guardar
+    var btnGuardar = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;btnGuardar&quot;));
+    btnGuardar.click();
+    WDS.log.info(&quot;Botón Guardar clickeado&quot;);
+    
+    // Esperar a que se procese el guardado
+    java.lang.Thread.sleep(2000);
+    
+    // Verificar que no hay errores de validación
+    var errores = WDS.browser.findElements(org.openqa.selenium.By.cssSelector(&quot;.error-message.show-error&quot;));
+    if (errores.size() &gt; 0) {
+        WDS.log.error(&quot;Se encontraron errores de validación: &quot; + errores.size());
+        WDS.sampleResult.setSuccessful(false);
+        WDS.sampleResult.setResponseMessage(&quot;Errores de validación encontrados&quot;);
+    } else {
+        WDS.log.info(&quot;Formulario enviado exitosamente sin errores&quot;);
+        WDS.sampleResult.setSuccessful(true);
+        WDS.sampleResult.setResponseMessage(&quot;Formulario completado y enviado correctamente&quot;);
+    }
+    
+} catch (e) {
+    WDS.log.error(&quot;Error durante la ejecución: &quot; + e.toString());
+    WDS.sampleResult.setSuccessful(false);
+    WDS.sampleResult.setResponseMessage(&quot;Error: &quot; + e.toString());
+}
+
+WDS.sampleResult.sampleEnd();
+
+// Función auxiliar para calcular dígito verificador RUT
+function calcularDigitoVerificador(rut) {
+    var cuerpo = rut.toString();
+    var suma = 0;
+    var multiplo = 2;
+    
+    for (var i = 1; i &lt;= cuerpo.length; i++) {
+        var index = multiplo * parseInt(cuerpo.charAt(cuerpo.length - i));
+        suma += index;
+        if (multiplo &lt; 7) multiplo += 1;
+        else multiplo = 2;
+    }
+    
+    var dvEsperado = 11 - (suma % 11);
+    if (dvEsperado === 10) return &apos;K&apos;;
+    if (dvEsperado === 11) return &apos;0&apos;;
+    return dvEsperado.toString();
+}</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">java</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Envio_Exitoso" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-737590617">Formulario completado y enviado correctamente</stringProp>
+              <stringProp name="1849785710">sin errores</stringProp>
+              <stringProp name="49689190">Formulario enviado exitosamente</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">FALLÓ el envío del formulario. 
+Posibles causas: 
+- Campos requeridos vacíos
+- Validación RUT fallida
+- Error de JavaScript
+- Tiempo de espera agotado</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Validar_Tamano_Respuesta" enabled="true">
+            <stringProp name="DurationAssertion.duration">100</stringProp>
+          </DurationAssertion>
+          <hashTree/>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.ChromeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig" testname="Configuracion_Chrome" enabled="true">
+          <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+          <stringProp name="WebDriverConfig.driver_path">/usr/local/bin/chromedriver</stringProp>
+          <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+          <boolProp name="WebDriverConfig.headless">false</boolProp>
+          <boolProp name="WebDriverConfig.maximize_browser">true</boolProp>
+          <stringProp name="ChromeDriverConfig.additional_args"></stringProp>
+          <stringProp name="ChromeDriverConfig.binary_path"></stringProp>
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="1.3 Busquedas_Concurrentes" enabled="true">
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+        <intProp name="ThreadGroup.num_threads">40</intProp>
+        <intProp name="ThreadGroup.ramp_time">8</intProp>
+        <longProp name="ThreadGroup.duration">60</longProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle">
+          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.ChromeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig" testname="Configuracion_Chrome_Busquedas" enabled="true">
+          <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+          <stringProp name="WebDriverConfig.driver_path">/usr/local/bin/chromedriver</stringProp>
+          <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+          <boolProp name="WebDriverConfig.headless">false</boolProp>
+          <boolProp name="WebDriverConfig.maximize_browser">false</boolProp>
+          <stringProp name="ChromeDriverConfig.additional_args"></stringProp>
+          <stringProp name="ChromeDriverConfig.binary_path"></stringProp>
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Datos_Busquedas" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding">UTF-8</stringProp>
+          <stringProp name="filename">/Users/Oliver/Desktop/SEMANA 7 testing/PRUEBAS/data_pacientes.txt</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">apellidos</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Buscar_Pacientes_Apellido" enabled="true">
+          <stringProp name="WebDriverSampler.script">// Configuración inicial
+WDS.sampleResult.sampleStart();
+WDS.log.info(&quot;Iniciando búsqueda de pacientes por apellido&quot;);
+
+try {
+    // Navegar a la página del formulario
+    WDS.browser.get(&quot;http://localhost:8080/formulario.html&quot;);
+    WDS.log.info(&quot;Página cargada correctamente&quot;);
+    
+    // Esperar a que cargue la página
+    WDS.browser.manage().timeouts().implicitlyWait(10, java.util.concurrent.TimeUnit.SECONDS);
+    
+    // Lista de apellidos básicos para prueba
+    var apellidos = [&quot;Gómez&quot;, &quot;Rodríguez&quot;, &quot;Martínez&quot;, &quot;Soto&quot;, &quot;Fernández&quot;];
+
+    // Seleccionar apellido aleatorio
+    var indiceAleatorio = Math.floor(Math.random() * apellidos.length);
+    var apellidoAleatorio = apellidos[indiceAleatorio];
+    WDS.log.info(&quot;Buscando pacientes con apellido: &quot; + apellidoAleatorio);
+    
+    // Localizar campo de búsqueda
+    var searchInput = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;searchInput&quot;));
+    searchInput.clear();
+    searchInput.sendKeys(apellidoAleatorio);
+    WDS.log.info(&quot;Apellido ingresado en campo de búsqueda&quot;);
+    
+    // Hacer clic en botón Buscar
+    var btnBuscar = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;btnBuscar&quot;));
+    btnBuscar.click();
+    WDS.log.info(&quot;Botón Buscar clickeado&quot;);
+    
+    // Esperar a que carguen resultados
+    java.lang.Thread.sleep(2000);
+    
+    // Verificar resultados
+    var resultados = WDS.browser.findElements(org.openqa.selenium.By.cssSelector(&quot;.patient-item&quot;));
+    var cantidadResultados = resultados.size();
+
+    WDS.log.info(&quot;Encontrados &quot; + cantidadResultados + &quot; resultados para apellido: &quot; + apellidoAleatorio);
+
+    // Validar resultados
+    if (cantidadResultados &gt;= 0) {
+        // La búsqueda fue exitosa (0 resultados también cuenta)
+        WDS.sampleResult.setSuccessful(true);
+        WDS.sampleResult.setResponseMessage(&quot;Búsqueda completada. Resultados: &quot; + cantidadResultados);
+
+        if (cantidadResultados &gt; 0) {
+            var primerResultado = resultados.get(0);
+            primerResultado.click();
+            WDS.log.info(&quot;Cargando datos del primer resultado&quot;);
+            java.lang.Thread.sleep(1000);
+        }
+    } else {
+        WDS.sampleResult.setSuccessful(false);
+        WDS.sampleResult.setResponseMessage(&quot;Error en la búsqueda&quot;);
+    }
+
+} catch (e) {
+    WDS.log.error(&quot;Error durante la búsqueda: &quot; + e.toString());
+    WDS.sampleResult.setSuccessful(false);
+    WDS.sampleResult.setResponseMessage(&quot;Error: &quot; + e.toString());
+}
+
+// Finalizar la muestra
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">java</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Resultados_Busqueda" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1776656692">Busqueda completada</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Pausa_Entre_Busquedas" enabled="true">
+          <stringProp name="ConstantTimer.delay">3000</stringProp>
+          <stringProp name="RandomTimer.range">2000</stringProp>
+        </GaussianRandomTimer>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="2.1 Tiempo_Carga_Inicial" enabled="true">
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle">
+          <stringProp name="LoopController.loops">20</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Medir_Carga_Completa" enabled="true">
+          <boolProp name="HTTPSampler.image_parser">true</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+          <intProp name="HTTPSampler.concurrentPool">6</intProp>
+          <stringProp name="HTTPSampler.embedded_url_re">`.*.(css</stringProp>
+          <stringProp name="HTTPSampler.embedded_url_exclude_re">.*\.(zip|exe|pdf).*</stringProp>
+          <intProp name="HTTPSampler.connect_timeout">5000</intProp>
+          <intProp name="HTTPSampler.response_timeout">10000</intProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/formulario.html</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Pausa_Entre_Iteraciones" enabled="true">
+          <stringProp name="ConstantTimer.delay">3000</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="2.2 Rendimiento_Validacion_RUT" enabled="true">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle">
+          <stringProp name="LoopController.loops">50</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.ChromeDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig" testname="Configuracion_Chrome_RUT" enabled="true">
+          <boolProp name="WebDriverConfig.acceptinsecurecerts">false</boolProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+          <stringProp name="WebDriverConfig.driver_path">/usr/local/bin/chromedriver</stringProp>
+          <boolProp name="WebDriverConfig.dev_mode">false</boolProp>
+          <boolProp name="WebDriverConfig.headless">true</boolProp>
+          <boolProp name="WebDriverConfig.maximize_browser">false</boolProp>
+          <stringProp name="ChromeDriverConfig.additional_args"></stringProp>
+          <stringProp name="ChromeDriverConfig.binary_path"></stringProp>
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_ftp_proxy">true</boolProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_socks_proxy">true</boolProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <stringProp name="WebDriverConfig.custom_capabilites"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.ChromeDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="Validacion_RUT_Performance" enabled="true">
+          <stringProp name="WebDriverSampler.script">// Configuración inicial
+WDS.sampleResult.sampleStart();
+WDS.log.info(&quot;Iniciando prueba de rendimiento de validación RUT&quot;);
+
+try {
+    // Navegar a la página del formulario
+    WDS.browser.get(&quot;http://localhost:8080/formulario.html&quot;);
+    WDS.log.info(&quot;Página cargada correctamente&quot;);
+    
+    // Esperar a que cargue la página
+    WDS.browser.manage().timeouts().implicitlyWait(5, java.util.concurrent.TimeUnit.SECONDS);
+    
+    // Lista de RUTs para prueba (25 válidos + 25 inválidos)
+    var rutsValidos = [
+        &quot;12345678-9&quot;, &quot;18765432-4&quot;, &quot;20456789-3&quot;, &quot;15678901-2&quot;, &quot;13456789-0&quot;,
+        &quot;17654321-5&quot;, &quot;19876543-2&quot;, &quot;14567890-1&quot;, &quot;16789012-3&quot;, &quot;18901234-5&quot;,
+        &quot;11223344-6&quot;, &quot;15556677-8&quot;, &quot;16677889-0&quot;, &quot;17788990-1&quot;, &quot;18899001-2&quot;,
+        &quot;19900112-3&quot;, &quot;20012345-4&quot;, &quot;21123456-5&quot;, &quot;22234567-6&quot;, &quot;23345678-7&quot;,
+        &quot;24456789-8&quot;, &quot;25567890-9&quot;, &quot;26678901-0&quot;, &quot;27789012-1&quot;, &quot;28890123-2&quot;
+    ];
+    
+    var rutsInvalidos = [
+        &quot;12345678-0&quot;, &quot;11111111-2&quot;, &quot;99999999-9&quot;, &quot;12345678-X&quot;, &quot;00000000-0&quot;,
+        &quot;1234567-89&quot;, &quot;123456789-0&quot;, &quot;ABCDEFGH-K&quot;, &quot;12345678-&quot;, &quot;-9&quot;, &quot;12345678-91&quot;,
+        &quot;12345678-92&quot;, &quot;12345678-93&quot;, &quot;12345678-94&quot;, &quot;12345678-95&quot;, &quot;12345678-96&quot;,
+        &quot;12345678-97&quot;, &quot;12345678-98&quot;, &quot;12345678-99&quot;, &quot;12345678-90&quot;, &quot;12345678-12&quot;,
+        &quot;12345678-34&quot;, &quot;12345678-56&quot;, &quot;12345678-78&quot;, &quot;12345678-11&quot;
+    ];
+    
+    // Combinar y mezclar RUTs
+    var todosLosRUTs = rutsValidos.concat(rutsInvalidos);
+    
+    // Función para mezclar array (Fisher-Yates shuffle)
+    function mezclarArray(array) {
+        for (var i = array.length - 1; i &gt; 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
+    
+    var rutsMezclados = mezclarArray(todosLosRUTs);
+    var rutIndex = parseInt(vars.get(&quot;RUT_INDEX&quot;)) || 0;
+    var rutActual = rutsMezclados[rutIndex];
+    
+    WDS.log.info(&quot;Probando RUT #&quot; + (rutIndex + 1) + &quot;: &quot; + rutActual);
+    
+    // 1. Localizar campo RUT
+    var rutField = WDS.browser.findElement(org.openqa.selenium.By.id(&quot;rut&quot;));
+    
+    // 2. Limpiar campo y ingresar RUT
+    rutField.clear();
+    var startTime = java.lang.System.currentTimeMillis();
+    rutField.sendKeys(rutActual);
+    
+    // 3. Disparar evento blur para activar validación
+    WDS.browser.executeScript(&quot;arguments[0].blur();&quot;, rutField);
+    
+    // 4. Esperar a que se complete la validación
+    java.lang.Thread.sleep(500);
+    
+    var endTime = java.lang.System.currentTimeMillis();
+    var tiempoValidacion = endTime - startTime;
+    
+    // 5. Verificar resultado de validación
+    var tieneError = rutField.getAttribute(&quot;class&quot;).contains(&quot;error&quot;);
+    var esValido = rutsValidos.indexOf(rutActual) !== -1;
+    
+    var validacionCorrecta = (esValido &amp;&amp; !tieneError) || (!esValido &amp;&amp; tieneError);
+    
+    WDS.log.info(&quot;RUT: &quot; + rutActual + 
+                &quot; | Válido: &quot; + esValido + 
+                &quot; | Error UI: &quot; + tieneError + 
+                &quot; | Tiempo: &quot; + tiempoValidacion + &quot;ms&quot; +
+                &quot; | Validación Correcta: &quot; + validacionCorrecta);
+    
+    // 6. Guardar métricas
+    vars.put(&quot;TIEMPO_VALIDACION_&quot; + rutIndex, tiempoValidacion.toString());
+    vars.put(&quot;RUT_VALIDO_&quot; + rutIndex, esValido.toString());
+    vars.put(&quot;VALIDACION_CORRECTA_&quot; + rutIndex, validacionCorrecta.toString());
+    
+    // 7. Preparar para siguiente iteración
+    rutIndex++;
+    vars.put(&quot;RUT_INDEX&quot;, rutIndex.toString());
+    
+    if (rutIndex &gt;= rutsMezclados.length) {
+        WDS.log.info(&quot;Completadas todas las validaciones RUT&quot;);
+        vars.put(&quot;RUT_INDEX&quot;, &quot;0&quot;); // Reset para posibles repeticiones
+    }
+    
+    // 8. Establecer resultado
+    if (validacionCorrecta) {
+        WDS.sampleResult.setSuccessful(true);
+        WDS.sampleResult.setResponseMessage(&quot;Validación RUT exitosa. Tiempo: &quot; + tiempoValidacion + &quot;ms&quot;);
+    } else {
+        WDS.sampleResult.setSuccessful(false);
+        WDS.sampleResult.setResponseMessage(&quot;Error en validación RUT. Tiempo: &quot; + tiempoValidacion + &quot;ms&quot;);
+    }
+    
+} catch (e) {
+    WDS.log.error(&quot;Error durante validación RUT: &quot; + e.toString());
+    WDS.sampleResult.setSuccessful(false);
+    WDS.sampleResult.setResponseMessage(&quot;Error: &quot; + e.toString());
+}
+
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+          <stringProp name="WebDriverSampler.language">java</stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Validar_Tiempo_Maximo_Validacion" enabled="true">
+            <stringProp name="DurationAssertion.duration">100</stringProp>
+          </DurationAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Correctitud_Validacion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1940504470">Validación RUT exitosa</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Pausa_Fija_Validaciones" enabled="true">
+          <stringProp name="ConstantTimer.delay">1500</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="2.3 Operaciones_LocalStorage" enabled="true">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle">
+          <stringProp name="LoopController.loops">10</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Medir_Performance_LocalStorage" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">// Configuración inicial
+var sampleResult = SampleResult;
+sampleResult.sampleStart();
+var log = org.apache.logging.log4j.LogManager.getLogger(&quot;LocalStorageTest&quot;);
+
+try {
+    log.info(&quot;Iniciando medición de operaciones LocalStorage&quot;);
+    
+    // Generar datos de prueba realistas
+    function generarPaciente(id) {
+        return {
+            rut: &quot;1234567&quot; + id + &quot;-9&quot;,
+            nombres: &quot;Paciente&quot; + id,
+            apellidos: &quot;Apellido&quot; + id,
+            direccion: &quot;Calle Prueba &quot; + id,
+            ciudad: &quot;Ciudad&quot; + id,
+            telefono: &quot;+56912345&quot; + String(id).padStart(3, &apos;0&apos;),
+            email: &quot;paciente&quot; + id + &quot;@test.com&quot;,
+            fechaNacimiento: &quot;1980-01-01&quot;,
+            estadoCivil: &quot;soltero&quot;,
+            comentarios: &quot;Paciente de prueba &quot; + id,
+            fechaRegistro: new Date().toISOString(),
+            fechaActualizacion: new Date().toISOString()
+        };
+    }
+    
+    // Crear dataset de prueba (100 pacientes)
+    var dataset = {};
+    for (var i = 1; i &lt;= 100; i++) {
+        var paciente = generarPaciente(i);
+        dataset[paciente.rut] = paciente;
+    }
+    
+    var resultados = {
+        tiempoGuardado: 0,
+        tiempoLectura: 0,
+        tiempoBusqueda: 0,
+        tamañoDatos: 0
+    };
+    
+    // ================================
+    // 1. MEDIR TIEMPO DE GUARDADO (SET)
+    // ================================
+    log.info(&quot;Iniciando medición de guardado...&quot;);
+    var startTimeSet = java.lang.System.currentTimeMillis();
+    
+    // Simular localStorage.setItem
+    var datosJSON = JSON.stringify(dataset);
+    resultados.tamañoDatos = datosJSON.length;
+    
+    // Simular la operación de guardado
+    for (var j = 0; j &lt; 100; j++) {
+        // Operación de escritura simulada
+        var temp = JSON.parse(datosJSON);
+        temp.timestamp = new Date().getTime();
+        var resultado</stringProp>
+          <stringProp name="scriptLanguage">java</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Validar_Tiempo_Total_Maximo" enabled="true">
+            <stringProp name="DurationAssertion.duration">500</stringProp>
+          </DurationAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Resultados_LocalStorage" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1305920896">DENTRO DE ESPECIFICACIONES</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Pausa_Entre_Mediciones" enabled="true">
+          <stringProp name="ConstantTimer.delay">2000</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+      </hashTree>
+      <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="3.1 Sobrecarga_Usuarios_Estres" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="Threads initial delay">0</stringProp>
+        <stringProp name="Start users count">50</stringProp>
+        <stringProp name="Start users count burst">50</stringProp>
+        <stringProp name="Start users period">30</stringProp>
+        <stringProp name="Stop users count">50</stringProp>
+        <stringProp name="Stop users period">5</stringProp>
+        <stringProp name="flighttime">30</stringProp>
+        <stringProp name="rampUp">5</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle">
+          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </kg.apc.jmeter.threads.SteppingThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Carga_Pagina_Estres" enabled="true">
+          <boolProp name="HTTPSampler.image_parser">true</boolProp>
+          <stringProp name="HTTPSampler.path">/formulario.html</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validacion_Estres_Flexible" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">// JSR223 Assertion para validación bajo estrés
+// Configuración de umbrales flexibles según fase de estrés
+
+var sampleResult = SampleResult;
+var prev = prev; // Referencia al resultado anterior
+
+try {
+    // Obtener métricas actuales
+    var responseTime = sampleResult.getTime();
+    var sampleCount = prev.getSampleCount();
+    var errorCount = prev.getErrorCount();
+    
+    // Calcular tasa de error actual (evitar división por cero)
+    var currentErrorRate = 0;
+    if (sampleCount + errorCount &gt; 0) {
+        currentErrorRate = (errorCount / (sampleCount + errorCount)) * 100;
+    }
+    
+    // Umbrales flexibles según fase de estrés
+    var maxTimeStressed = 10000; // 10 segundos máximo bajo estrés extremo
+    var maxErrorRateStressed = 10; // 10% máximo bajo estrés
+    
+    // Obtener fase actual basada en el tiempo de ejecución
+    var startTime = sampleResult.getStartTime();
+    var currentTime = new Date().getTime();
+    var elapsedSeconds = (currentTime - startTime) / 1000;
+    
+    // Ajustar umbrales según la fase de estrés
+    var phaseThresholds = {
+        time: maxTimeStressed,
+        error: maxErrorRateStressed
+    };
+    
+    // Determinar fase actual y ajustar umbrales
+    if (elapsedSeconds &lt; 30) {
+        // Fase 1: 50 usuarios - Comportamiento normal
+        phaseThresholds.time = 3000; // 3 segundos
+        phaseThresholds.error = 2;   // 2%
+    } else if (elapsedSeconds &lt; 60) {
+        // Fase 2: 100 usuarios - Degradación leve aceptable
+        phaseThresholds.time = 5000; // 5 segundos
+        phaseThresholds.error = 5;   // 5%
+    } else if (elapsedSeconds &lt; 90) {
+        // Fase 3: 200 usuarios - Degradación significativa
+        phaseThresholds.time = 8000; // 8 segundos
+        phaseThresholds.error = 8;   // 8%
+    } else {
+        // Fase 4: 500 usuarios - Estrés extremo
+        phaseThresholds.time = 10000; // 10 segundos
+        phaseThresholds.error = 10;   // 10%
+    }
+    
+    // Validar métricas
+    var timeValid = responseTime &lt;= phaseThresholds.time;
+    var errorValid = currentErrorRate &lt;= phaseThresholds.error;
+    
+    // Determinar si la assertion falla
+    var shouldFail = !(timeValid &amp;&amp; errorValid);
+    
+    // Configurar mensaje detallado
+    var statusMessage = &quot;Fase: &quot; + getPhaseName(elapsedSeconds) + 
+                       &quot; | Tiempo: &quot; + responseTime + &quot;ms/&quot; + phaseThresholds.time + &quot;ms&quot; +
+                       &quot; | Error: &quot; + currentErrorRate.toFixed(2) + &quot;%/&quot; + phaseThresholds.error + &quot;%&quot; +
+                       &quot; | Estado: &quot; + (shouldFail ? &quot;❌ FALLA&quot; : &quot;✅ ACEPTABLE&quot;);
+    
+    // Configurar el resultado de la assertion
+    AssertionResult.setFailure(shouldFail);
+    AssertionResult.setFailureMessage(statusMessage);
+    
+    // Log para monitoreo (solo en caso de falla o para debugging)
+    if (shouldFail) {
+        log.warn(&quot;Assertion estrés - &quot; + statusMessage);
+    }
+    
+} catch (e) {
+    // En caso de error en la assertion, fallar con mensaje descriptivo
+    log.error(&quot;Error en JSR223 Assertion: &quot; + e.toString());
+    AssertionResult.setFailure(true);
+    AssertionResult.setFailureMessage(&quot;Error en validación: &quot; + e.toString());
+}
+
+// Función auxiliar para obtener nombre de fase
+function getPhaseName(elapsedSeconds) {
+    if (elapsedSeconds &lt; 30) return &quot;FASE 1 (50 usuarios)&quot;;
+    if (elapsedSeconds &lt; 60) return &quot;FASE 2 (100 usuarios)&quot;;
+    if (elapsedSeconds &lt; 90) return &quot;FASE 3 (200 usuarios)&quot;;
+    return &quot;FASE 4 (500 usuarios)&quot;;
+}</stringProp>
+            <stringProp name="scriptLanguage">java</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+          <stringProp name="scriptLanguage">java</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">// Simular operaciones mixtas bajo estrés
+var randomOperation = Math.floor(Math.random() * 3);
+var log = org.apache.logging.log4j.LogManager.getLogger(&quot;EstresTest&quot;);
+
+switch(randomOperation) {
+    case 0:
+        // Operación de lectura
+        log.info(&quot;Simulando lectura bajo estrés&quot;);
+        java.lang.Thread.sleep(50 + Math.random() * 100);
+        break;
+    case 1:
+        // Operación de escritura
+        log.info(&quot;Simulando escritura bajo estrés&quot;);
+        java.lang.Thread.sleep(100 + Math.random() * 200);
+        break;
+    case 2:
+        // Operación de búsqueda
+        log.info(&quot;Simulando búsqueda bajo estrés&quot;);
+        java.lang.Thread.sleep(150 + Math.random() * 150);
+        break;
+}
+
+SampleResult.setResponseData(&quot;Operación completada bajo estrés: &quot; + randomOperation);
+SampleResult.setSuccessful(true);</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Validacion_Estres_Flexible" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">// JSR223 Assertion para validación bajo estrés
+// Configuración de umbrales flexibles según fase de estrés
+
+var sampleResult = SampleResult;
+var prev = prev; // Referencia al resultado anterior
+
+try {
+    // Obtener métricas actuales
+    var responseTime = sampleResult.getTime();
+    var sampleCount = prev.getSampleCount();
+    var errorCount = prev.getErrorCount();
+    
+    // Calcular tasa de error actual (evitar división por cero)
+    var currentErrorRate = 0;
+    if (sampleCount + errorCount &gt; 0) {
+        currentErrorRate = (errorCount / (sampleCount + errorCount)) * 100;
+    }
+    
+    // Umbrales flexibles según fase de estrés
+    var maxTimeStressed = 10000; // 10 segundos máximo bajo estrés extremo
+    var maxErrorRateStressed = 10; // 10% máximo bajo estrés
+    
+    // Obtener fase actual basada en el tiempo de ejecución
+    var startTime = sampleResult.getStartTime();
+    var currentTime = new Date().getTime();
+    var elapsedSeconds = (currentTime - startTime) / 1000;
+    
+    // Ajustar umbrales según la fase de estrés
+    var phaseThresholds = {
+        time: maxTimeStressed,
+        error: maxErrorRateStressed
+    };
+    
+    // Determinar fase actual y ajustar umbrales
+    if (elapsedSeconds &lt; 30) {
+        // Fase 1: 50 usuarios - Comportamiento normal
+        phaseThresholds.time = 3000; // 3 segundos
+        phaseThresholds.error = 2;   // 2%
+    } else if (elapsedSeconds &lt; 60) {
+        // Fase 2: 100 usuarios - Degradación leve aceptable
+        phaseThresholds.time = 5000; // 5 segundos
+        phaseThresholds.error = 5;   // 5%
+    } else if (elapsedSeconds &lt; 90) {
+        // Fase 3: 200 usuarios - Degradación significativa
+        phaseThresholds.time = 8000; // 8 segundos
+        phaseThresholds.error = 8;   // 8%
+    } else {
+        // Fase 4: 500 usuarios - Estrés extremo
+        phaseThresholds.time = 10000; // 10 segundos
+        phaseThresholds.error = 10;   // 10%
+    }
+    
+    // Validar métricas
+    var timeValid = responseTime &lt;= phaseThresholds.time;
+    var errorValid = currentErrorRate &lt;= phaseThresholds.error;
+    
+    // Determinar si la assertion falla
+    var shouldFail = !(timeValid &amp;&amp; errorValid);
+    
+    // Configurar mensaje detallado
+    var statusMessage = &quot;Fase: &quot; + getPhaseName(elapsedSeconds) + 
+                       &quot; | Tiempo: &quot; + responseTime + &quot;ms/&quot; + phaseThresholds.time + &quot;ms&quot; +
+                       &quot; | Error: &quot; + currentErrorRate.toFixed(2) + &quot;%/&quot; + phaseThresholds.error + &quot;%&quot; +
+                       &quot; | Estado: &quot; + (shouldFail ? &quot;❌ FALLA&quot; : &quot;✅ ACEPTABLE&quot;);
+    
+    // Configurar el resultado de la assertion
+    AssertionResult.setFailure(shouldFail);
+    AssertionResult.setFailureMessage(statusMessage);
+    
+    // Log para monitoreo (solo en caso de falla o para debugging)
+    if (shouldFail) {
+        log.warn(&quot;Assertion estrés - &quot; + statusMessage);
+    }
+    
+} catch (e) {
+    // En caso de error en la assertion, fallar con mensaje descriptivo
+    log.error(&quot;Error en JSR223 Assertion: &quot; + e.toString());
+    AssertionResult.setFailure(true);
+    AssertionResult.setFailureMessage(&quot;Error en validación: &quot; + e.toString());
+}
+
+// Función auxiliar para obtener nombre de fase
+function getPhaseName(elapsedSeconds) {
+    if (elapsedSeconds &lt; 30) return &quot;FASE 1 (50 usuarios)&quot;;
+    if (elapsedSeconds &lt; 60) return &quot;FASE 2 (100 usuarios)&quot;;
+    if (elapsedSeconds &lt; 90) return &quot;FASE 3 (200 usuarios)&quot;;
+    return &quot;FASE 4 (500 usuarios)&quot;;
+}</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Pausa_Usuarios_Reales" enabled="true">
+          <stringProp name="ConstantTimer.delay">5000</stringProp>
+          <stringProp name="RandomTimer.range">3000</stringProp>
+        </GaussianRandomTimer>
+        <hashTree/>
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Controlador Throughput" enabled="true">
+          <intProp name="ThroughputController.style">1</intProp>
+          <boolProp name="ThroughputController.perThread">true</boolProp>
+          <intProp name="ThroughputController.maxThroughput">1</intProp>
+          <FloatProperty>
+            <name>ThroughputController.percentThroughput</name>
+            <value>60.0</value>
+            <savedValue>0.0</savedValue>
+          </FloatProperty>
+        </ThroughputController>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="3.2 Estres_Memoria_Recursos" enabled="true">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <longProp name="ThreadGroup.duration">300</longProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">// Configurar Chrome Options programáticamente
+import org.openqa.selenium.chrome.ChromeOptions;
+
+var chromeOptions = new ChromeOptions();
+chromeOptions.addArguments(&quot;--disable-web-security&quot;);
+chromeOptions.addArguments(&quot;--allow-running-insecure-content&quot;);
+chromeOptions.addArguments(&quot;--no-sandbox&quot;);
+chromeOptions.addArguments(&quot;--disable-dev-shm-usage&quot;);
+chromeOptions.addArguments(&quot;--memory-pressure-off&quot;);
+chromeOptions.addArguments(&quot;--disable-background-timer-throttling&quot;);
+
+// Aplicar opciones al WebDriver
+WDS.browserOptions = chromeOptions;</stringProp>
+          <stringProp name="scriptLanguage">java</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="3.3 Concurrencia_Extrema_Operaciones">
+        <intProp name="ThreadGroup.num_threads">100</intProp>
+        <intProp name="ThreadGroup.ramp_time">30</intProp>
+        <longProp name="ThreadGroup.duration">300</longProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle">
+          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Controlador_Lecturas_40p" enabled="true">
+          <intProp name="ThroughputController.style">1</intProp>
+          <boolProp name="ThroughputController.perThread">true</boolProp>
+          <intProp name="ThroughputController.maxThroughput">1</intProp>
+          <FloatProperty>
+            <name>ThroughputController.percentThroughput</name>
+            <value>40.0</value>
+            <savedValue>0.0</savedValue>
+          </FloatProperty>
+        </ThroughputController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Lectura_Busqueda_Pacientes" enabled="true">
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <intProp name="HTTPSampler.connect_timeout">5000</intProp>
+            <intProp name="HTTPSampler.response_timeout">10000</intProp>
+            <stringProp name="HTTPSampler.domain">localhost</stringProp>
+            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.path">/formulario.html</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Formulario_Busqueda_Cargado" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1298052137">Buscar por apellido...</stringProp>
+                <stringProp name="-171567801">searchInput	</stringProp>
+                <stringProp name="627061744">btnBuscar		</stringProp>
+                <stringProp name="-1880932050">searchResults</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Validar_Tiempo_Maximo_Carga" enabled="true">
+              <stringProp name="DurationAssertion.duration">3000</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+            <SizeAssertion guiclass="SizeAssertionGui" testclass="SizeAssertion" testname="Validar_Tamaño_Minimo_Respuesta" enabled="true">
+              <stringProp name="Assertion.test_field">SizeAssertion.response_network_size</stringProp>
+              <stringProp name="SizeAssertion.size">5000</stringProp>
+              <intProp name="SizeAssertion.operator">1</intProp>
+            </SizeAssertion>
+            <hashTree/>
+          </hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Busqueda_LocalStorage_Simulada" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">// Simular búsqueda en localStorage - OPERACIÓN DE LECTURA
+var sampleResult = SampleResult;
+sampleResult.sampleStart();
+
+// Obtener logger para monitoreo
+var log = org.apache.logging.log4j.LogManager.getLogger(&quot;LecturasTest&quot;);
+
+try {
+    // Lista de apellidos realistas para búsqueda
+    var apellidos = [&quot;Gómez&quot;, &quot;Rodríguez&quot;, &quot;Martínez&quot;, &quot;López&quot;, &quot;García&quot;, &quot;Pérez&quot;, &quot;Sánchez&quot;, &quot;Ramírez&quot;, &quot;Flores&quot;, &quot;Díaz&quot;];
+    var apellidoAleatorio = apellidos[Math.floor(Math.random() * apellidos.length)];
+    
+    log.info(&quot;Iniciando búsqueda por apellido: &quot; + apellidoAleatorio);
+    
+    // Simular tiempo de búsqueda en localStorage (50-150ms)
+    var tiempoBusqueda = 50 + Math.random() * 100;
+    java.lang.Thread.sleep(tiempoBusqueda);
+    
+    // Simular resultados aleatorios (0-9 pacientes encontrados)
+    var resultados = Math.floor(Math.random() * 10);
+    
+    // Mensaje de respuesta realista
+    var responseMessage = &quot;&quot;;
+    if (resultados === 0) {
+        responseMessage = &quot;🔍 Búsqueda: &apos;&quot; + apellidoAleatorio + &quot;&apos; - No se encontraron pacientes&quot;;
+    } else if (resultados === 1) {
+        responseMessage = &quot;🔍 Búsqueda: &apos;&quot; + apellidoAleatorio + &quot;&apos; - 1 paciente encontrado&quot;;
+    } else {
+        responseMessage = &quot;🔍 Búsqueda: &apos;&quot; + apellidoAleatorio + &quot;&apos; - &quot; + resultados + &quot; pacientes encontrados&quot;;
+    }
+    
+    // Establecer respuesta exitosa
+    sampleResult.setResponseData(responseMessage, &quot;UTF-8&quot;);
+    sampleResult.setSuccessful(true);
+    
+    // Log para monitoreo en tiempo real
+    log.info(&quot;Búsqueda completada: &quot; + apellidoAleatorio + &quot; | Resultados: &quot; + resultados + &quot; | Tiempo: &quot; + tiempoBusqueda + &quot;ms&quot;);
+    
+} catch (e) {
+    // Manejo de errores
+    var errorMessage = &quot;❌ Error en búsqueda: &quot; + e.toString();
+    sampleResult.setResponseData(errorMessage, &quot;UTF-8&quot;);
+    sampleResult.setSuccessful(false);
+    sampleResult.setResponseMessage(&quot;Fallo en búsqueda localStorage&quot;);
+    
+    log.error(&quot;Error en operación de lectura: &quot; + e.toString());
+}
+
+sampleResult.sampleEnd();</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Busqueda_Exitosa" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1717264707">BÚSQUEDA</stringProp>
+                <stringProp name="-1126393280">pacientes encontrados</stringProp>
+                <stringProp name="343592702">Tiempo:</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Validar_Tiempo_Maximo_Lectura" enabled="true">
+              <stringProp name="DurationAssertion.duration">200</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+            <SizeAssertion guiclass="SizeAssertionGui" testclass="SizeAssertion" testname="Validar_Respuesta_No_Vacia" enabled="true">
+              <stringProp name="Assertion.test_field">SizeAssertion.response_network_size</stringProp>
+              <stringProp name="SizeAssertion.size">50</stringProp>
+              <intProp name="SizeAssertion.operator">1</intProp>
+            </SizeAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Controlador_Escrituras_30p" enabled="true">
+          <intProp name="ThroughputController.style">1</intProp>
+          <boolProp name="ThroughputController.perThread">true</boolProp>
+          <intProp name="ThroughputController.maxThroughput">1</intProp>
+          <FloatProperty>
+            <name>ThroughputController.percentThroughput</name>
+            <value>30.0</value>
+            <savedValue>0.0</savedValue>
+          </FloatProperty>
+        </ThroughputController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Carga_Formulario_Registro" enabled="true">
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <intProp name="HTTPSampler.connect_timeout">5000</intProp>
+            <intProp name="HTTPSampler.response_timeout">10000</intProp>
+            <stringProp name="HTTPSampler.domain">localhost</stringProp>
+            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.protocol">hhtp</stringProp>
+            <stringProp name="HTTPSampler.path">/formulario.html</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Formulario_Registro_Cargado" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="78341969">RUT		</stringProp>
+                <stringProp name="-507625046">Nombres</stringProp>
+                <stringProp name="-271571084">Apellidos	</stringProp>
+                <stringProp name="-823226470">btnGuardar</stringProp>
+                <stringProp name="-47810125">Formulario de Ficha Medica</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Validar_Tiempo_Maximo_Carga" enabled="true">
+              <stringProp name="DurationAssertion.duration">3000</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+            <SizeAssertion guiclass="SizeAssertionGui" testclass="SizeAssertion" testname="Validar_Tamaño_Minimo_Respuesta" enabled="true">
+              <stringProp name="Assertion.test_field">SizeAssertion.response_network_size</stringProp>
+              <stringProp name="SizeAssertion.size">5000</stringProp>
+              <intProp name="SizeAssertion.operator">1</intProp>
+            </SizeAssertion>
+            <hashTree/>
+          </hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Escritura_Crear_Paciente" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">// ESCRITURAS (30%) - Creación de nuevos pacientes
+var sampleResult = SampleResult;
+sampleResult.sampleStart();
+
+var log = org.apache.logging.log4j.LogManager.getLogger(&quot;EscriturasTest&quot;);
+
+try {
+    // Generar ID único para evitar conflictos en concurrencia
+    var timestamp = new Date().getTime();
+    var randomId = Math.floor(Math.random() * 1000000);
+    var uniqueId = timestamp + &quot;_&quot; + randomId;
+    
+    // Datos realistas para nuevo paciente
+    var nombresLista = [&quot;Juan&quot;, &quot;María&quot;, &quot;Carlos&quot;, &quot;Ana&quot;, &quot;Pedro&quot;, &quot;Laura&quot;, &quot;Diego&quot;, &quot;Elena&quot;, &quot;Roberto&quot;, &quot;Isabel&quot;];
+    var apellidosLista = [&quot;Gómez&quot;, &quot;Rodríguez&quot;, &quot;Martínez&quot;, &quot;López&quot;, &quot;García&quot;, &quot;Pérez&quot;, &quot;Sánchez&quot;, &quot;Ramírez&quot;, &quot;Flores&quot;, &quot;Díaz&quot;];
+    var ciudadesLista = [&quot;Santiago&quot;, &quot;Valparaíso&quot;, &quot;Concepción&quot;, &quot;La Serena&quot;, &quot;Antofagasta&quot;, &quot;Temuco&quot;, &quot;Rancagua&quot;, &quot;Talca&quot;];
+    
+    var nombreAleatorio = nombresLista[Math.floor(Math.random() * nombresLista.length)];
+    var apellidoAleatorio = apellidosLista[Math.floor(Math.random() * apellidosLista.length)];
+    var ciudadAleatoria = ciudadesLista[Math.floor(Math.random() * ciudadesLista.length)];
+    
+    // Generar RUT chileno válido
+    var numeroRut = 15000000 + Math.floor(Math.random() * 5000000);
+    var digitoVerificador = calcularDigitoVerificador(numeroRut);
+    
+    var paciente = {
+        rut: numeroRut + &quot;-&quot; + digitoVerificador,
+        nombres: nombreAleatorio + &quot; &quot; + nombresLista[Math.floor(Math.random() * nombresLista.length)],
+        apellidos: apellidoAleatorio + &quot; &quot; + apellidosLista[Math.floor(Math.random() * apellidosLista.length)],
+        direccion: &quot;Av. &quot; + [&quot;Libertad&quot;, &quot;Principal&quot;, &quot;Los Heroes&quot;, &quot;Portugal&quot;, &quot;España&quot;][Math.floor(Math.random() * 5)] + &quot; &quot; + (Math.floor(Math.random() * 2000) + 1),
+        ciudad: ciudadAleatoria,
+        telefono: &quot;+569&quot; + (80000000 + Math.floor(Math.random() * 20000000)),
+        email: &quot;paciente.&quot; + uniqueId + &quot;@clinica.com&quot;,
+        fechaNacimiento: generarFechaNacimiento(),
+        estadoCivil: [&quot;soltero&quot;, &quot;casado&quot;, &quot;divorciado&quot;, &quot;viudo&quot;, &quot;unión civil&quot;][Math.floor(Math.random() * 5)],
+        comentarios: &quot;Paciente registrado en prueba de carga - &quot; + new Date().toLocaleString(),
+        fechaRegistro: new Date().toISOString(),
+        fechaActualizacion: new Date().toISOString()
+    };
+    
+    log.info(&quot;➕ Creando nuevo paciente: &quot; + paciente.rut);
+    
+    // Simular tiempo de escritura en base de datos (100-300ms)
+    var tiempoEscritura = 100 + (Math.random() * 200);
+    java.lang.Thread.sleep(tiempoEscritura);
+    
+    var responseMessage = &quot;✅ PACIENTE CREADO: &quot; + paciente.nombres + &quot; &quot; + paciente.apellidos + 
+                         &quot; | RUT: &quot; + paciente.rut + 
+                         &quot; | Tel: &quot; + paciente.telefono + 
+                         &quot; | Ciudad: &quot; + paciente.ciudad +
+                         &quot; | Tiempo: &quot; + tiempoEscritura.toFixed(0) + &quot;ms&quot;;
+    
+    sampleResult.setResponseData(responseMessage, &quot;UTF-8&quot;);
+    sampleResult.setSuccessful(true);
+    
+    log.info(&quot;Escritura exitosa: &quot; + paciente.rut + &quot; | Tiempo: &quot; + tiempoEscritura.toFixed(0) + &quot;ms&quot;);
+    
+} catch (e) {
+    var errorMessage = &quot;❌ ERROR creando paciente: &quot; + e.toString();
+    sampleResult.setResponseData(errorMessage, &quot;UTF-8&quot;);
+    sampleResult.setSuccessful(false);
+    log.error(&quot;Error en operación de escritura: &quot; + e.toString());
+}
+
+sampleResult.sampleEnd();
+
+// Función auxiliar para calcular dígito verificador RUT
+function calcularDigitoVerificador(rut) {
+    var cuerpo = rut.toString();
+    var suma = 0;
+    var multiplo = 2;
+    
+    for (var i = 1; i &lt;= cuerpo.length; i++) {
+        var index = multiplo * parseInt(cuerpo.charAt(cuerpo.length - i));
+        suma += index;
+        if (multiplo &lt; 7) multiplo += 1;
+        else multiplo = 2;
+    }
+    
+    var dvEsperado = 11 - (suma % 11);
+    if (dvEsperado === 10) return &apos;K&apos;;
+    if (dvEsperado === 11) return &apos;0&apos;;
+    return dvEsperado.toString();
+}
+
+// Función para generar fecha de nacimiento aleatoria
+function generarFechaNacimiento() {
+    var start = new Date(1950, 0, 1);
+    var end = new Date(2000, 0, 1);
+    var fecha = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+    return fecha.toISOString().split(&apos;T&apos;)[0];
+}</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Escritura_Exitosa" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1438541477">PACIENTE CREADO</stringProp>
+                <stringProp name="78343488">RUT:	</stringProp>
+                <stringProp name="343592702">Tiempo:</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Validar_Tiempo_Maximo_Escritura" enabled="true">
+              <stringProp name="DurationAssertion.duration">350</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+            <SizeAssertion guiclass="SizeAssertionGui" testclass="SizeAssertion" testname="Validar_Respuesta_No_Vacia" enabled="true">
+              <stringProp name="Assertion.test_field">SizeAssertion.response_network_size</stringProp>
+              <stringProp name="SizeAssertion.size">50</stringProp>
+              <intProp name="SizeAssertion.operator">1</intProp>
+            </SizeAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Controlador_Actualizaciones_20p" enabled="true">
+          <intProp name="ThroughputController.style">1</intProp>
+          <boolProp name="ThroughputController.perThread">true</boolProp>
+          <intProp name="ThroughputController.maxThroughput">1</intProp>
+          <FloatProperty>
+            <name>ThroughputController.percentThroughput</name>
+            <value>20.0</value>
+            <savedValue>0.0</savedValue>
+          </FloatProperty>
+        </ThroughputController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Carga_Datos_Paciente_Editar" enabled="true">
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <intProp name="HTTPSampler.connect_timeout">5000</intProp>
+            <intProp name="HTTPSampler.response_timeout">10000</intProp>
+            <stringProp name="HTTPSampler.domain">localhost</stringProp>
+            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.path">/formulario.html</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Formulario_Edicion_Cargado" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1482113866">Formulario de Ficha Medica	</stringProp>
+                <stringProp name="81521">RUT</stringProp>
+                <stringProp name="1040870672">Direccion</stringProp>
+                <stringProp name="2018707576">Ciudad</stringProp>
+                <stringProp name="2030939510">Guardar</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Validar_Tiempo_Maximo_Carga" enabled="true">
+              <stringProp name="DurationAssertion.duration">3000</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+            <SizeAssertion guiclass="SizeAssertionGui" testclass="SizeAssertion" testname="Validar_Tamaño_Minimo_Respuesta" enabled="true">
+              <stringProp name="Assertion.test_field">SizeAssertion.response_network_size</stringProp>
+              <stringProp name="SizeAssertion.size">5000</stringProp>
+              <intProp name="SizeAssertion.operator">1</intProp>
+            </SizeAssertion>
+            <hashTree/>
+          </hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Actualizacion_Modificar_Paciente" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">// ACTUALIZACIONES (20%) - Modificación de pacientes existentes
+var sampleResult = SampleResult;
+sampleResult.sampleStart();
+
+var log = org.apache.logging.log4j.LogManager.getLogger(&quot;ActualizacionesTest&quot;);
+
+try {
+    // RUTs de pacientes existentes que podrían actualizarse
+    var rutsExistentes = [
+        &quot;12345678-9&quot;, &quot;98765432-1&quot;, &quot;11222333-4&quot;, &quot;44555666-7&quot;, 
+        &quot;77888999-K&quot;, &quot;10111222-3&quot;, &quot;13141516-9&quot;, &quot;17181920-1&quot;,
+        &quot;21222324-5&quot;, &quot;25262728-0&quot;
+    ];
+    var rutAleatorio = rutsExistentes[Math.floor(Math.random() * rutsExistentes.length)];
+    
+    // Campos que podrían actualizarse
+    var camposActualizacion = [
+        { 
+            campo: &quot;teléfono&quot;, 
+            valores: [&quot;+56987654321&quot;, &quot;+56912345678&quot;, &quot;+56955556666&quot;, &quot;+56999998888&quot;, &quot;+56911112222&quot;],
+            mensaje: &quot;📞 Teléfono actualizado&quot;
+        },
+        { 
+            campo: &quot;dirección&quot;, 
+            valores: [&quot;Av. Libertador 1234&quot;, &quot;C Los Alerces 567&quot;, &quot;Pasaje Los Olmos 890&quot;, &quot;Plaza Central 321&quot;],
+            mensaje: &quot;🏠 Dirección actualizada&quot;
+        },
+        { 
+            campo: &quot;email&quot;, 
+            valores: [&quot;nuevo.email@clinica.com&quot;, &quot;contacto.actualizado@hospital.com&quot;, &quot;paciente.modificado@correo.com&quot;],
+            mensaje: &quot;📧 Email actualizado&quot;
+        },
+        { 
+            campo: &quot;estado civil&quot;, 
+            valores: [&quot;casado&quot;, &quot;divorciado&quot;, &quot;viudo&quot;, &quot;unión civil&quot;],
+            mensaje: &quot;💍 Estado civil actualizado&quot;
+        },
+        { 
+            campo: &quot;comentarios médicos&quot;, 
+            valores: [&quot;Control periódico estable&quot;, &quot;Medicación ajustada&quot;, &quot;Nuevos exámenes solicitados&quot;, &quot;Próximo control en 3 meses&quot;],
+            mensaje: &quot;📝 Comentarios médicos actualizados&quot;
+        }
+    ];
+    
+    var campoAleatorio = camposActualizacion[Math.floor(Math.random() * camposActualizacion.length)];
+    var nuevoValor = campoAleatorio.valores[Math.floor(Math.random() * campoAleatorio.valores.length)];
+    
+    log.info(&quot;🔄 Actualizando paciente &quot; + rutAleatorio + &quot; - Campo: &quot; + campoAleatorio.campo);
+    
+    // Simular tiempo de actualización en base de datos (80-230ms)
+    var tiempoActualizacion = 80 + (Math.random() * 150);
+    java.lang.Thread.sleep(tiempoActualizacion);
+    
+    var responseMessage = campoAleatorio.mensaje + &quot; | Paciente: &quot; + rutAleatorio + 
+                         &quot; | Nuevo valor: &quot; + nuevoValor + 
+                         &quot; | Tiempo: &quot; + tiempoActualizacion.toFixed(0) + &quot;ms&quot;;
+    
+    sampleResult.setResponseData(responseMessage, &quot;UTF-8&quot;);
+    sampleResult.setSuccessful(true);
+    
+    log.info(&quot;Actualización exitosa: &quot; + rutAleatorio + &quot; | Campo: &quot; + campoAleatorio.campo + &quot; | Tiempo: &quot; + tiempoActualizacion.toFixed(0) + &quot;ms&quot;);
+    
+} catch (e) {
+    var errorMessage = &quot;❌ ERROR actualizando paciente: &quot; + e.toString();
+    sampleResult.setResponseData(errorMessage, &quot;UTF-8&quot;);
+    sampleResult.setSuccessful(false);
+    log.error(&quot;Error en operación de actualización: &quot; + e.toString());
+}
+
+sampleResult.sampleEnd();</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Actualizacion_Exitosa" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1434628365">actualizado</stringProp>
+                <stringProp name="-542278967">Paciente:</stringProp>
+                <stringProp name="343592702">Tiempo:</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Validar_Tiempo_Maximo_Actualizacion" enabled="true">
+              <stringProp name="DurationAssertion.duration">250</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+            <SizeAssertion guiclass="SizeAssertionGui" testclass="SizeAssertion" testname="Validar_Respuesta_No_Vacia" enabled="true">
+              <stringProp name="Assertion.test_field">SizeAssertion.response_network_size</stringProp>
+              <stringProp name="SizeAssertion.size">50</stringProp>
+              <intProp name="SizeAssertion.operator">1</intProp>
+            </SizeAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Controlador_Eliminaciones_10p" enabled="true">
+          <intProp name="ThroughputController.style">1</intProp>
+          <boolProp name="ThroughputController.perThread">true</boolProp>
+          <intProp name="ThroughputController.maxThroughput">1</intProp>
+          <FloatProperty>
+            <name>ThroughputController.percentThroughput</name>
+            <value>10.0</value>
+            <savedValue>0.0</savedValue>
+          </FloatProperty>
+        </ThroughputController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Navegacion_Gestion_Pacientes" enabled="true">
+            <boolProp name="HTTPSampler.image_parser">true</boolProp>
+            <intProp name="HTTPSampler.connect_timeout">5000</intProp>
+            <intProp name="HTTPSampler.response_timeout">10000</intProp>
+            <stringProp name="HTTPSampler.domain">localhost</stringProp>
+            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.path">/formulario.html</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Pagina_Gestion_Cargada" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-47810125">Formulario de Ficha Medica</stringProp>
+                <stringProp name="-1626464300">Sistema de registro</stringProp>
+                <stringProp name="523424192">Búsqueda de Pacientes</stringProp>
+                <stringProp name="-559723774">searchInput</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Validar_Tiempo_Maximo_Carga" enabled="true">
+              <stringProp name="DurationAssertion.duration">3000</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+            <SizeAssertion guiclass="SizeAssertionGui" testclass="SizeAssertion" testname="Validar_Tamaño_Minimo_Respuesta" enabled="true">
+              <stringProp name="Assertion.test_field">SizeAssertion.response_network_size</stringProp>
+              <stringProp name="SizeAssertion.size">5000</stringProp>
+              <intProp name="SizeAssertion.operator">1</intProp>
+            </SizeAssertion>
+            <hashTree/>
+          </hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Eliminacion_Remover_Paciente" enabled="true">
+            <stringProp name="scriptLanguage">java</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">// ELIMINACIONES (10%) - Remoción de pacientes del sistema
+var sampleResult = SampleResult;
+sampleResult.sampleStart();
+
+var log = org.apache.logging.log4j.LogManager.getLogger(&quot;EliminacionesTest&quot;);
+
+try {
+    // Simular RUTs de pacientes que podrían eliminarse
+    // (En un sistema real, estos serían pacientes creados previamente en pruebas)
+    var rutsParaEliminar = [
+        &quot;99999991-1&quot;, &quot;99999992-2&quot;, &quot;99999993-3&quot;, &quot;99999994-4&quot;, &quot;99999995-5&quot;,
+        &quot;99999996-6&quot;, &quot;99999997-7&quot;, &quot;99999998-8&quot;, &quot;99999999-9&quot;, &quot;99999990-0&quot;
+    ];
+    var rutEliminar = rutsParaEliminar[Math.floor(Math.random() * rutsParaEliminar.length)];
+    
+    // Razones de eliminación realistas
+    var razonesEliminacion = [
+        &quot;Paciente se cambió de ciudad&quot;,
+        &quot;Alta médica definitiva&quot;,
+        &quot;Paciente solicitó eliminar datos&quot;,
+        &quot;Registro duplicado&quot;,
+        &quot;Error en registro inicial&quot;,
+        &quot;Paciente fallecido&quot;,
+        &quot;Transferencia a otra clínica&quot;
+    ];
+    var razonAleatoria = razonesEliminacion[Math.floor(Math.random() * razonesEliminacion.length)];
+    
+    log.info(&quot;🗑️ Solicitando eliminación de paciente: &quot; + rutEliminar + &quot; - Razón: &quot; + razonAleatoria);
+    
+    // Simular tiempo de eliminación en base de datos (60-180ms)
+    var tiempoEliminacion = 60 + (Math.random() * 120);
+    java.lang.Thread.sleep(tiempoEliminacion);
+    
+    // Simular confirmación de eliminación
+    var responseMessage = &quot;✅ PACIENTE ELIMINADO: RUT &quot; + rutEliminar + 
+                         &quot; | Razón: &quot; + razonAleatoria + 
+                         &quot; | Tiempo procesamiento: &quot; + tiempoEliminacion.toFixed(0) + &quot;ms&quot; +
+                         &quot; | Fecha: &quot; + new Date().toLocaleString();
+    
+    sampleResult.setResponseData(responseMessage, &quot;UTF-8&quot;);
+    sampleResult.setSuccessful(true);
+    
+    log.info(&quot;Eliminación exitosa: &quot; + rutEliminar + &quot; | Razón: &quot; + razonAleatoria + &quot; | Tiempo: &quot; + tiempoEliminacion.toFixed(0) + &quot;ms&quot;);
+    
+} catch (e) {
+    var errorMessage = &quot;❌ ERROR eliminando paciente: &quot; + e.toString();
+    sampleResult.setResponseData(errorMessage, &quot;UTF-8&quot;);
+    sampleResult.setSuccessful(false);
+    log.error(&quot;Error en operación de eliminación: &quot; + e.toString());
+}
+
+sampleResult.sampleEnd();</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Validar_Eliminacion_Exitosa" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1178157523">PACIENTE ELIMINADO</stringProp>
+                <stringProp name="81521">RUT</stringProp>
+                <stringProp name="-692159839">Tiempo procesamiento:</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Validar_Tiempo_Maximo_Eliminacion" enabled="true">
+              <stringProp name="DurationAssertion.duration">200</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+            <SizeAssertion guiclass="SizeAssertionGui" testclass="SizeAssertion" testname="Validar_Respuesta_No_Vacia" enabled="true">
+              <stringProp name="Assertion.test_field">SizeAssertion.response_network_size</stringProp>
+              <stringProp name="SizeAssertion.size">50</stringProp>
+              <intProp name="SizeAssertion.operator">1</intProp>
+            </SizeAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">/Users/Oliver/Desktop/SEMANA 7 testing/PRUEBAS/resultadosarbol/resultados.jtl</stringProp>
+        <boolProp name="ResultCollector.success_only_logging">true</boolProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

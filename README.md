@@ -15,7 +15,4 @@ El sistema funciona principalmente con **almacenamiento local (localStorage)**, 
 - `formulario.html` → Aplicación principal (formulario médico con estilos y scripts embebidos).
 - `data_pacientes.txt` → Archivo con pacientes de ejemplo (formato CSV) que puede usarse como base de datos inicial.
 
-## 🚀 Cómo usar la aplicación
-1. Descarga este repositorio:
-   ```bash
-   git clone https://github.com/TU_USUARIO/formulario-pacientes.git
+
